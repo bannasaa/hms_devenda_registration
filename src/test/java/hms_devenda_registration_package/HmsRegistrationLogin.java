@@ -40,7 +40,6 @@ public class HmsRegistrationLogin {
 	        Thread.sleep(3000);
 		
 	}
-	
 	public static void searchregistrationnumber() throws InterruptedException {
         driver.findElement(By.name("search")).sendKeys("Mahesh");
         driver.findElement(By.name("submit")).click();
@@ -172,7 +171,7 @@ public class HmsRegistrationLogin {
 		      Set<String>windows  =driver.getWindowHandles();
 		      System.out.println(windows);
 		      Object[] s = windows.toArray();
-		      driver.switchTo().window((String) s[1]).toString();
+		      driver.switchTo().window(s[1].toString());
 		      driver.findElement(By.id("name")).sendKeys("mahesh");
 		      driver.findElement(By.id("email")).sendKeys("devendrabana06@gmail.com");
               new Select(driver.findElement(By.id("car"))).selectByVisibleText("Volvo");
@@ -184,12 +183,11 @@ public class HmsRegistrationLogin {
 		      driver.findElement(By.xpath("//input[@type='file']")).sendKeys("D:\\New folder\\IMG_20170629_123134.jpg");
 		      driver.findElement(By.id("message")).sendKeys("welcome to hms");
 		      driver.close();
-              driver.switchTo().window((String) s[0]).toString();
+              driver.switchTo().window(s[0].toString());
 		      driver.findElement(By.name("EMAIL_ID")).sendKeys("devendrabana06@gmail.com");
               Thread.sleep(3000);
 	        
-		
-         }
+		 }
 	//@Test(priority= 4)
     //@AfterTest
 	//public void afterTest() {
