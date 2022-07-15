@@ -1,7 +1,6 @@
 package hms_devenda_registration_package;
 
 import java.util.Set;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,43 +11,30 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-
 public class HmsRegistrationLogin {
 	
 	public static WebDriver driver;
 
 	
-	public  static void main(String[] args) throws InterruptedException  {
-		openUlr();
-		loginhmspage();
-		registrationpage() ;
-		 feedbackpopupsalert();
-        perminentregistrationpage();
-        searchregistrationnumber();
-        emergency_registration();
-        verifyAlerts() ;
-		logoutpage();
-		
-		
-		
-	}
-	
-	public static void emergency_registration() throws  InterruptedException{
+	@Test(priority=5)
+
+	public  void emergency_registration() throws  InterruptedException{
 	 driver.findElement(By.name("username")).sendKeys("admin");
 	  driver.findElement(By.name("password")).sendKeys("admin");
 	  driver.findElement(By.name("submit")).click();
 	        Thread.sleep(3000);
 		
 	}
-	public static void searchregistrationnumber() throws InterruptedException {
+	@Test(priority=4)
+	public  void searchregistrationnumber() throws InterruptedException {
         driver.findElement(By.name("search")).sendKeys("Mahesh");
         driver.findElement(By.name("submit")).click();
         Thread.sleep(3000);
        
     }
 	
-   //@BeforeTest
-	public static void openUlr()  throws InterruptedException {
+   @BeforeTest
+	public  void openUlr()  throws InterruptedException {
 		  System.setProperty("webdriver.chrome.driver","C:\\Users\\Digital Computers\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		  driver=new ChromeDriver();
           driver.get("http://www.seleniumbymahesh.com/HMS/");
@@ -56,8 +42,8 @@ public class HmsRegistrationLogin {
 	         Thread.sleep(3000);
 
 	  }
-	//@Test(priority= 0)
-	public static void loginhmspage() throws InterruptedException {
+	@Test(priority= 0)
+	public  void loginhmspage() throws InterruptedException {
 
          driver.findElement(By.name("username")).sendKeys("admin");
          driver.findElement(By.name("password")).sendKeys("admin");
@@ -65,8 +51,8 @@ public class HmsRegistrationLogin {
          Thread.sleep(3000);
         
      }
-	//@Test(priority= 1)
-    public static void registrationpage() throws InterruptedException {
+	@Test(priority= 1)
+    public  void registrationpage() throws InterruptedException {
 		   
         driver.findElement(By.linkText("Registration")).click();
         driver.findElement(By.linkText("Perminent Registration")).click();
@@ -77,14 +63,14 @@ public class HmsRegistrationLogin {
 
 		 }
 	//@Test(priority= 4)
-     public static void logoutpage() throws InterruptedException {
+     public  void logoutpage() throws InterruptedException {
      driver.findElement(By.linkText("Logout")).click();
      Thread.sleep(3000);
 	}
 	
-	//@Test(priority= 2)
+	@Test(priority= 3)
 
-	public static void perminentregistrationpage() throws InterruptedException {
+	public  void perminentregistrationpage() throws InterruptedException {
 		
        Select select1= new Select(driver.findElement(By.name("PATIENT_CAT")));
        select1.selectByVisibleText("Self");
@@ -154,11 +140,10 @@ public class HmsRegistrationLogin {
         Thread.sleep(3000); 
   }
 	
-	//@Test(priority= 2)
 
-	//@Test(priority= 3)
+	@Test(priority= 5)
 
-	public static void verifyAlerts() throws InterruptedException  {
+	public  void verifyAlerts() throws InterruptedException  {
 		Alert alert=driver.switchTo().alert();
 		String str=alert.getText();
 		System.out.println(str);
@@ -166,7 +151,8 @@ public class HmsRegistrationLogin {
 		Thread.sleep(5000);
 		
    }
-	public static void feedbackpopupsalert() throws InterruptedException  {
+	@Test(priority=2)
+	public  void feedbackpopupsalert() throws InterruptedException  {
 		      driver.findElement(By.linkText("Feedback")).click();
 		      Set<String>windows  =driver.getWindowHandles();
 		      System.out.println(windows);
@@ -188,10 +174,9 @@ public class HmsRegistrationLogin {
               Thread.sleep(3000);
 	        
 		 }
-	//@Test(priority= 4)
-    //@AfterTest
-	//public void afterTest() {
-	//	System.out.println("after test");
-    //}
+    @AfterTest
+	public void afterTest() {
+		System.out.println("after test");
+    }
 }
 

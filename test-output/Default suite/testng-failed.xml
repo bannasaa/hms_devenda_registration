@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="hms_devenda_registration_package.HmsRegistrationLogin">
+        <methods>
+          <include name="afterTest"/>
+          <include name="perminentregistrationpage"/>
+          <include name="loginhmspage"/>
+          <include name="verifyAlerts"/>
+          <include name="registrationpage"/>
+          <include name="feedbackpopupsalert"/>
+          <include name="openUlr"/>
+          <include name="searchregistrationnumber"/>
+          <include name="emergency_registration"/>
+        </methods>
+      </class> <!-- hms_devenda_registration_package.HmsRegistrationLogin -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

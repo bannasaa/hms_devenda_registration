@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Batch Execution">
+	<test name="Hms Registration">
+		<classes>
+			<class name="hms_devenda_registration_package.HmsRegistrationLogin">
+				<methods>
+					<include name="openUlr()"></include>
+					<include name="loginhmspage()"></include>
+					<include name="registrationpage()"></include>
+					<include name="perminentregistrationpage()"></include>
+												
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
